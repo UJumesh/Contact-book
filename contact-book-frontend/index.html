@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Book - Sky Blue UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #e0f7fa, #b3e5fc);
+      color: #333;
+      padding: 2rem;
+    }
+
+    header {
+      background-color: #0288d1;
+      padding: 1rem 2rem;
+      border-radius: 1.5rem;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0288d1;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 2rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #b3e5fc;
+    }
+
+    .contact-form-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3rem 0;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-form {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      width: 40%;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      min-width: 300px;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+      border: 2px solid #81d4fa;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #4fc3f7;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 1rem;
+      background: #0288d1;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: block;
+      margin: 0 auto;
+    }
+
+    button:hover {
+      background: #01579b;
+    }
+
+    .side-img {
+      max-width: 250px;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-list {
+      margin: 3rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2%;
+      box-shadow: 0 40px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #e53935;
+      color: #fff;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 5rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <div class="logo-img">📘</div>
+      <h1>ContactBook</h1>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Contacts</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <!-- Contact Form with Side Images -->
+  <div class="contact-form-wrapper">
+    <img src="https://cdn.prod.website-files.com/6119e20e0135748f16b558bb/646f249942b7f215ed7171cd_hero%20img-p-800.webp" alt="Left Photo" class="side-img" />
+    <section class="contact-form">
+      <h2>➕ Add New Contact</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">👤 Full Name</label>
+          <input type="text" id="name" placeholder="John Doe" required>
+        </div>
+        <div class="form-group">
+          <label for="email">📧 Email</label>
+          <input type="email" id="email" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">📞 Phone Number</label>
+          <input type="tel" id="phone" placeholder="+91-9876543210" required>
+        </div>
+        <button type="submit">➕ Add Contact</button>
+      </form>
+    </section>
+    <img src="https://cdn.prod.website-files.com/6119e20e0135748f16b558bb/646f25a0b7da380c27efd8d1_All%20Contacts%20in%20one%20place-p-800.webp" alt="Right Photo" class="side-img" />
+  </div>
+
+  <!-- Contact List -->
+  <section class="contact-list" id="contactList">
+    <!-- Contacts will be dynamically inserted here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ContactBook. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const contactList = document.getElementById('contactList');
+  
+    const API_URL = 'http://localhost:5000/api/contacts'; // update if hosted elsewhere
+  
+    // 🟢 Load contacts from backend
+    async function loadContacts() {
+      contactList.innerHTML = '';
+      const res = await fetch(API_URL);
+      const contacts = await res.json();
+  
+      contacts.forEach(contact => {
+        createContactCard(contact._id, contact.name, contact.email, contact.phone);
+      });
+    }
+  
+    // 🟢 Create Contact Card in DOM
+    function createContactCard(id, name, email, phone) {
+      const card = document.createElement('div');
+      card.className = 'contact-card';
+      card.innerHTML = `
+        <button class="delete-btn">❌ Delete</button>
+        <h3>${name}</h3>
+        <p>📧 Email: ${email}</p>
+        <p>📞 Phone: ${phone}</p>
+      `;
+      
+      // 🟥 Delete Event
+      card.querySelector('.delete-btn').addEventListener('click', async () => {
+        await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+        card.remove();
+      });
+  
+      contactList.appendChild(card);
+    }
+  
+    // 🟢 Form Submit (Add Contact)
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+  
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone })
+      });
+  
+      const newContact = await res.json();
+      createContactCard(newContact._id, newContact.name, newContact.email, newContact.phone);
+      form.reset();
+    });
+  
+    // 🔁 Load existing contacts when page loads
+    window.addEventListener('DOMContentLoaded', loadContacts);
+  </script>
+  
+</body>
+</html>
