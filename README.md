@@ -1,23 +1,22 @@
 # Contact Book — Express & MongoDB
 
-A contact-management backend built with **Node.js, Express, and Mongoose**, with a companion frontend directory.
+A REST contact-management application using Node.js, Express and Mongoose, with a companion frontend folder.
 
-## Implemented backend features
-- List contacts
-- Create contacts with name, phone, and email
-- Delete contacts by ID
-- Connect to MongoDB using an environment variable
+## Implemented API
 
-## Stack
-Node.js · Express 5 · MongoDB · Mongoose · CORS · dotenv
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| GET | `/api/contacts` | List all contacts |
+| POST | `/api/contacts` | Create a contact with name, phone and email |
+| DELETE | `/api/contacts/:id` | Delete a contact |
 
-## Run the backend
+## Local backend
 
 ```bash
 npm install
 ```
 
-Create a local `.env` with your own database connection details:
+Create a local `.env` with your own MongoDB connection details:
 
 ```dotenv
 MONGO_URI=mongodb://127.0.0.1:27017/contact-book
@@ -26,26 +25,9 @@ PORT=5000
 
 ```bash
 npm run dev
-# or: npm start
 ```
 
-## API reference
+Backend entry point: `server.js`. The companion `contact-book-frontend/` is present, but its package scripts are incomplete, so a working frontend is not asserted.
 
-| Method | Endpoint | Description |
-| --- | --- | --- |
-| GET | `/api/contacts` | List contacts |
-| POST | `/api/contacts` | Create contact; JSON: `name`, `phone`, `email` |
-| DELETE | `/api/contacts/:id` | Delete contact |
-
-## Structure
-- `server.js` — Express entry point
-- `db.js` — database-related code
-- `models/Contact.js` — contact model
-- `controllers/contactController.js` — controller functions
-- `routes/contactRoutes.js` — REST routes
-- `contact-book-frontend/` — frontend experiment
-
-## Development notes
-The tracked frontend's package configuration is incomplete, so this README does not claim that the frontend runs out of the box. The API currently has no user authentication; secure it before exposing personal contact information publicly. **The repository also tracks a `.env` file:** treat any included secrets as potentially exposed, rotate real credentials, and remove them from Git history using a deliberate security cleanup process.
-
-**Status:** Learning/demo project, not production hardened.
+## Security and limitations
+This is an educational implementation without user authentication. The repository currently tracks a `.env` file and `node_modules`. If any tracked secret is real, rotate it and plan history cleanup separately. Do not expose the contacts API publicly without authentication and validation.
